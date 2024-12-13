@@ -1,43 +1,37 @@
-# Compiled Lua sources
-luac.out
+# Ignore node_modules directories
+node_modules/
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+# Ignore log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+# Ignore environment variable files
+.env
+.env.* 
 
-# Precompiled Headers
-*.gch
-*.pch
+# Ignore build and dependency directories
+dist/
+build/
+out/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
+# Ignore IDE/Editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Ignore package-lock and yarn.lock if not using them
+# Uncomment if needed
+package-lock.json
+yarn.lock
 
 
 *.txt
