@@ -44,7 +44,9 @@ luac.out
 
 */node_modules/*
 */package-lock.json
+*/package.json
 
 *.md
 
 2023/template/
+2024/template/
