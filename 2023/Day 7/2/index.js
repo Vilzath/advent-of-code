@@ -1,10 +1,10 @@
 const fs = require('fs');
+console.time('test');
 
 class Hand {
     constructor(hand, bid) {
         this.points = -1
         this.initHand = hand
-        this.sortedHand = hand
         this.label = ""
         this.bid = Number(bid)
     }
@@ -25,17 +25,6 @@ file.split("\r\n").forEach(hand => {
 })
 
 handProcessed.forEach(hand => {
-    let ineficientSort = []
-    for (let i = 0; i < hand.sortedHand.length; i++) {
-        ineficientSort.push(hand.sortedHand.charAt(i))
-    }
-    ineficientSort.sort((a, b) => {
-        return CARD_FORCE.indexOf(a) - CARD_FORCE.indexOf(b)
-    })
-    hand.sortedHand = ineficientSort.toString().replaceAll(",", "")
-})
-
-handProcessed.forEach(hand => {
     let maxHit = 0
     let minHit = 10
     let hitPair = false;
@@ -53,7 +42,6 @@ handProcessed.forEach(hand => {
                 if (!hitPair) {
                     hitPair = true
                 } else {
-                    //console.log("hit both !")
                     hitDouble = true
                 }
             }
@@ -77,7 +65,6 @@ handProcessed.forEach(hand => {
         doItMyself = 1000
         hand.label = maxHit + " of a kind"
     } else if (maxHit == 2) {
-        console.log(hand.initHand + " isDoublePair :" + hitDouble)
         if (hitDouble) {
             doItMyself = 100
             hand.label = "Double pair"
@@ -110,8 +97,9 @@ handProcessed.sort((hand1, hand2) => {
 
 let outputSorted = "\n"
 handProcessed.forEach((hand, index) => {
-    console.log(index + "--" + hand.initHand + " : " + hand.label)
+    //console.log(index + "--" + hand.initHand + " : " + hand.label)
     result = result + (index + 1) * hand.bid
 })
 
 console.log(result)
+console.timeEnd('test');
